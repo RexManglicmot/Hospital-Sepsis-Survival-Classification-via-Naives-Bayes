@@ -167,7 +167,11 @@ ggplot(data, aes(x=age, fill= result)) +
   geom_histogram(alpha = .5, color = 'black') +
   facet_wrap(~result, scales= 'free_y') +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+  labs(title = 'Age Distribution by Those Who Died/Lived',
+       subtitle = '0=Died and 1=Alive',
+       y = 'Frequency',
+       x = '')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
@@ -250,6 +254,15 @@ ggplot(data, aes(x=result, fill=sex)) +
 
 </center>
 
+Naive Bayes uses the Bayes theorem which states we can find the
+probability of A given B.[^2]
+
+<center>
+
+![](https://miro.medium.com/max/750/1*tjcmj9cDQ-rHXAtxCu5bRQ.webp)
+
+</center>
+
 ### Pros
 
 ### Cons
@@ -261,3 +274,5 @@ ggplot(data, aes(x=result, fill=sex)) +
 ## Inspiration for this project
 
 [^1]: <https://www.cdc.gov/sepsis/what-is-sepsis.html#>:\~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization
+
+[^2]: <https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c>
