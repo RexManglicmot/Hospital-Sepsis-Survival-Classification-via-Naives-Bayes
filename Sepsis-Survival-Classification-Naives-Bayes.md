@@ -3,9 +3,9 @@ Sepsis Survival Classification Naives Bayes
 Rex Manglicmot
 2022-12-18
 
--   <a href="#status-continuing-working-docuemtn"
-    id="toc-status-continuing-working-docuemtn">Status: Continuing Working
-    Docuemtn</a>
+-   <a href="#status-continuing-working-document"
+    id="toc-status-continuing-working-document">Status: Continuing Working
+    Document</a>
 -   <a href="#introduction" id="toc-introduction">Introduction</a>
 -   <a href="#loading-the-libraries" id="toc-loading-the-libraries">Loading
     the Libraries</a>
@@ -21,14 +21,33 @@ Rex Manglicmot
 -   <a href="#inspiration-for-this-project"
     id="toc-inspiration-for-this-project">Inspiration for this project</a>
 
-## Status: Continuing Working Docuemtn
+## Status: Continuing Working Document
+
+Things still need to do/Questions:
+
+-   Concepts on Naive Bayes + Cite Sources
+-   color section for histogram
+-   think of new ideas to display plots
 
 ## Introduction
+
+Four (4) clinical features: - age_years: integer - sex_0male_1female:
+binary - episode_number: integer - hospital_outcome_1alive_0dead:
+boolean
 
 ## Loading the Libraries
 
 ``` r
+#install.packages('hrbrthemes') #installed on 12/18/22
+#install.packages('ggthemes') #installed on 12/18/22
+#install.packages('ggdark') #installed on 12/8/22
+#install.packages('colorspace') #installed on 12/8/22
+
 library(tidyverse)
+library(ggthemes)
+library(ggplot2)
+library(viridis)
+library(colorspace)
 ```
 
 ## Loading the Data
@@ -52,14 +71,17 @@ head(data_orig, 7)
 
 ## Cleaning the Data
 
-**Bust out the Clorox, cuz we got some cleaning to do!**
-
-Make a copy change column names call unique to see values
-
 ``` r
 #make a copy of the original dataset
 data <- data_orig
 
+#check for NA values
+sum(is.na(data))
+```
+
+    ## [1] 0
+
+``` r
 #change colnames
 colnames(data) <- c('age', 'sex', 'epi', 'result')
 
@@ -86,12 +108,85 @@ uni
     ## [1] 1 0
 
 ``` r
-class(data)
+#check classes for all columns
+unlist(lapply(data, class))
 ```
 
-    ## [1] "data.frame"
+    ##       age       sex       epi    result 
+    ## "integer" "integer" "integer" "integer"
+
+``` r
+#change the sex, epi, and result columns 
+data[,2:4] <- lapply(data[,2:4], as.factor)
+
+#double check class but with a different function, sapply
+sapply(data, class)
+```
+
+    ##       age       sex       epi    result 
+    ## "integer"  "factor"  "factor"  "factor"
+
+Let’s explore
 
 ## Exploratory Data Analysis
+
+``` r
+summary(data)
+```
+
+    ##       age         sex       epi       result    
+    ##  Min.   :  0.00   0:57973   1:84811   0:  8105  
+    ##  1st Qu.: 51.00   1:52231   2:16688   1:102099  
+    ##  Median : 68.00             3: 5403             
+    ##  Mean   : 62.74             4: 2199             
+    ##  3rd Qu.: 81.00             5: 1103             
+    ##  Max.   :100.00
+
+``` r
+#create a histogram
+ggplot(data, aes(x=age, fill= result)) +
+  geom_histogram(alpha = .5, color = 'black', scale= 'free') +
+  facet_wrap(~result) +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+    ## Warning in geom_histogram(alpha = 0.5, color = "black", scale = "free"):
+    ## Ignoring unknown parameters: `scale`
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+``` r
+#create a density plot
+ggplot(data, aes(x=age, fill= sex)) +
+  geom_density(alpha=.5, color = 'black') +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+
+``` r
+#create a violin plot
+ggplot(data, aes(x=epi, y=age, fill=sex)) +
+  geom_violin(color='black') +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
+
+``` r
+#create a boxplot
+ggplot(data, aes(x=result, y=age, fill=sex)) +
+  geom_boxplot(color = 'black') +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
 
 ## Naives Bayes
 
