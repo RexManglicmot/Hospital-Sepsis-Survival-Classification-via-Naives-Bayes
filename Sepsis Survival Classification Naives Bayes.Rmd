@@ -1,0 +1,70 @@
+---
+title: "Sepsis Survival Classification Naives Bayes"
+author: "Rex Manglicmot"
+date: "2022-12-18"
+output: 
+  github_document: 
+    toc: yes
+---
+## Status: Continuing Working Docuemtn
+
+## Introduction
+
+
+## Loading the Libraries
+```{r, message = FALSE}
+library(tidyverse)
+
+```
+
+## Loading the Data
+```{r}
+#load the data
+data_orig <- read.csv('Sepsis Survival.csv')
+
+#view first 7 rows
+head(data_orig, 7)
+```
+
+## Cleaning the Data
+**Bust out the Clorox, cuz we got some cleaning to do!**
+
+Make a copy
+change column names
+call unique to see values
+```{r}
+#make a copy of the original dataset
+data <- data_orig
+
+#change colnames
+colnames(data) <- c('age', 'sex', 'epi', 'result')
+
+#check for all values
+uni <- lapply(data, unique)
+uni
+
+class(data)
+```
+
+
+
+## Exploratory Data Analysis
+```{r}
+
+```
+
+
+
+## Naives Bayes
+
+
+
+## Limitations
+
+
+
+## Conclusion
+
+
+
+## Inspiration for this project
