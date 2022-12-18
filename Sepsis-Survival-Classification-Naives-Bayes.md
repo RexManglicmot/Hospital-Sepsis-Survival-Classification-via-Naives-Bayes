@@ -16,6 +16,8 @@ Rex Manglicmot
 -   <a href="#exploratory-data-analysis"
     id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
 -   <a href="#naives-bayes" id="toc-naives-bayes">Naives Bayes</a>
+    -   <a href="#pros" id="toc-pros">Pros</a>
+    -   <a href="#cons" id="toc-cons">Cons</a>
 -   <a href="#limitations" id="toc-limitations">Limitations</a>
 -   <a href="#conclusion" id="toc-conclusion">Conclusion</a>
 -   <a href="#inspiration-for-this-project"
@@ -31,12 +33,25 @@ Things still need to do/Questions:
 
 ## Introduction
 
-![](https://miro.medium.com/max/1154/1*lIhMVUIcX6cSq2URrG9M1w.webp)
-Sepsis is bad.
+<center>
 
-Four (4) clinical features: - age_years: integer - sex_0male_1female:
-binary - episode_number: integer - hospital_outcome_1alive_0dead:
-boolean
+![](https://www.drugtargetreview.com/wp-content/uploads/sepsis-3.jpg)
+
+</center>
+
+**?????** According to the Center for Disease Control and Prevention, in
+a given year, 1 of 3 patients who have died within the hospital had
+sepsis during hospitalization, however, nearly 87% of sepsis cases
+starts before the patient goes to the hospital.[^1] It leaves hospitals
+institutions in a precarious situation. How do ultimately help a patient
+get better and not be subjected to malpractice suits?
+
+The dataset contains 4 clinical features as follows:
+
+-   age(int): years: integer
+-   sex(binary): 0=male and 1=female
+-   episode_number (int):
+-   hospital_outcome(boolean): 0=dead and 1=alive
 
 ## Loading the Libraries
 
@@ -207,6 +222,17 @@ ggplot(data, aes(x=result, y=age, fill=sex)) +
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
+#create a barchart
+ggplot(data, aes(x=result, fill=sex)) +
+  geom_bar(alpha = .5, color='black', width = 0.5) +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+
+``` r
+#create a better  barchart
 ggplot(data, aes(x=result, fill=sex)) +
   geom_bar(alpha = .5, color='black', width = 0.5) +
   facet_wrap(~ result, scales = 'free') +
@@ -214,12 +240,24 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-3.png)<!-- -->
 
 ## Naives Bayes
+
+<center>
+
+![](https://miro.medium.com/max/1154/1*lIhMVUIcX6cSq2URrG9M1w.webp)
+
+</center>
+
+### Pros
+
+### Cons
 
 ## Limitations
 
 ## Conclusion
 
 ## Inspiration for this project
+
+[^1]: <https://www.cdc.gov/sepsis/what-is-sepsis.html#>:\~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization
