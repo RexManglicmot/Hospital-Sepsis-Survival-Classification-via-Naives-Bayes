@@ -31,6 +31,9 @@ Things still need to do/Questions:
 
 ## Introduction
 
+![](https://miro.medium.com/max/1154/1*lIhMVUIcX6cSq2URrG9M1w.webp)
+Sepsis is bad.
+
 Four (4) clinical features: - age_years: integer - sex_0male_1female:
 binary - episode_number: integer - hospital_outcome_1alive_0dead:
 boolean
@@ -48,6 +51,7 @@ library(ggthemes)
 library(ggplot2)
 library(viridis)
 library(colorspace)
+library(scales)
 ```
 
 ## Loading the Data
@@ -145,48 +149,72 @@ summary(data)
 ``` r
 #create a histogram
 ggplot(data, aes(x=age, fill= result)) +
-  geom_histogram(alpha = .5, color = 'black', scale= 'free') +
-  facet_wrap(~result) +
+  geom_histogram(alpha = .5, color = 'black') +
+  facet_wrap(~result, scales= 'free_y') +
   scale_fill_discrete_qualitative() +
   theme_bw()
 ```
-
-    ## Warning in geom_histogram(alpha = 0.5, color = "black", scale = "free"):
-    ## Ignoring unknown parameters: `scale`
-
-    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 #create a density plot
 ggplot(data, aes(x=age, fill= sex)) +
-  geom_density(alpha=.5, color = 'black') +
+  geom_density(alpha = .5, color = 'black') +
   scale_fill_discrete_qualitative() +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+ggplot(data, aes(x=age, fill=result)) +
+  geom_bar(position = 'dodge' ) +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 ``` r
 #create a violin plot
 ggplot(data, aes(x=epi, y=age, fill=sex)) +
-  geom_violin(color='black') +
+  geom_violin(alpha = .5, color='black') +
   scale_fill_discrete_qualitative() +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+``` r
+ggplot(data, aes(x=epi, fill=result)) +
+  geom_bar(alpha = .5, color='black', position = 'dodge') +
+  facet_wrap(~ epi, scales = 'free') +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
 
 ``` r
 #create a boxplot
 ggplot(data, aes(x=result, y=age, fill=sex)) +
-  geom_boxplot(color = 'black') +
+  geom_boxplot(alpha = .5, color = 'black') +
   scale_fill_discrete_qualitative() +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-4.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+``` r
+ggplot(data, aes(x=result, fill=sex)) +
+  geom_bar(alpha = .5, color='black', width = 0.5) +
+  facet_wrap(~ result, scales = 'free') +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
 
 ## Naives Bayes
 
