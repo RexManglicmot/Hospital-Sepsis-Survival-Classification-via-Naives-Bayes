@@ -161,6 +161,18 @@ summary(data)
     ##  3rd Qu.: 81.00             5: 1103             
     ##  Max.   :100.00
 
+We see a few interesting insights from the summary function:
+
+1.  The mean is 62 and the median is 68 which means that Age as a
+    symmetrical distribution.
+2.  Male and Females are almost the same, with slightly more males.
+3.  epi has more of the 1 category than the others. **Need to find more
+    research about it and go back to the paper.**
+4.  More people with sepsis lived than died within the confines of the
+    hospital.
+
+Let’s visually check out the dataset.
+
 ``` r
 #create a histogram
 ggplot(data, aes(x=age, fill= result)) +
@@ -176,15 +188,14 @@ ggplot(data, aes(x=age, fill= result)) +
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-``` r
-#create a density plot
-ggplot(data, aes(x=age, fill= sex)) +
-  geom_density(alpha = .5, color = 'black') +
-  scale_fill_discrete_qualitative() +
-  theme_bw()
-```
+We see two interesting insights:
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+1.  Due to the facet wrap, we see that there are more people who lived
+    than died.
+2.  Based on the Age distribution, we see that both populations were
+    majority in the elderly age group and thus are right skewed.
+
+Let’s see how they both compare.
 
 ``` r
 ggplot(data, aes(x=age, fill=result)) +
@@ -193,7 +204,21 @@ ggplot(data, aes(x=age, fill=result)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+Visually, we see that there is big difference in terms of size.
+
+Let’s check out their density.
+
+``` r
+#create a density plot
+ggplot(data, aes(x=age, fill= sex)) +
+  geom_density(alpha = .5, color = 'black') +
+  scale_fill_discrete_qualitative() +
+  theme_bw()
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
 #create a violin plot
@@ -203,7 +228,7 @@ ggplot(data, aes(x=epi, y=age, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
 ggplot(data, aes(x=epi, fill=result)) +
@@ -213,7 +238,7 @@ ggplot(data, aes(x=epi, fill=result)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
 
 ``` r
 #create a boxplot
@@ -223,7 +248,7 @@ ggplot(data, aes(x=result, y=age, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 #create a barchart
@@ -233,7 +258,7 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
 
 ``` r
 #create a better  barchart
@@ -244,7 +269,7 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-3.png)<!-- -->
 
 ## Naives Bayes
 
