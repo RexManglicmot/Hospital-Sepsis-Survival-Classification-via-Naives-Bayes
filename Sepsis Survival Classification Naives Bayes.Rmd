@@ -264,8 +264,7 @@ Let's look diagonally:
 Misclassifications are about 7%.
 
 ## Limitations
-
-
+One limitation is that although both miscalculation errors for the train and test dataset are low, about 7%, the model failed to predict accturately those who died within the hospital in both datasets. In fact, it the model got it all wrong! Further tweaking is needed, such as adding a Kernel. 
 
 ## Conclusion
 
