@@ -354,17 +354,19 @@ print(CM1)
     ##        0     0     0
     ##        1  5676 71551
 
+Let’s look diagonally:
+
+-   0 patients were correctly predicted as classified as Dead (result =
+    0)
+-   71551 patients were correctly predicted as classified as Alive
+    (result = 1).
+
 ``` r
 #calculate miscalculation error
 1-sum(diag(CM1))/sum(CM1)
 ```
 
     ## [1] 0.07349761
-
-Let’s look diagonally:
-
--   0 patients were correctly predicted as classified as Dead
--   71551 patients were correctly predicted as classified as Alive.
 
 Misclassifications are about 7%.
 
@@ -385,17 +387,19 @@ print(CM2)
     ##        0     0     0
     ##        1  2429 30548
 
+Let’s look diagonally:
+
+-   0 patients were correctly predicted as classified as Dead (result =
+    0).
+-   30548 patients were correctly predicted as classified as Alive
+    (result = 1).
+
 ``` r
 #calculate miscalculation error
 1-sum(diag(CM2))/sum(CM2)
 ```
 
     ## [1] 0.0736574
-
-Let’s look diagonally:
-
--   0 patients were correctly predicted as classified as Dead
--   30548 patients were correctly predicted as classified as Alive.
 
 Misclassifications are about 7%.
 
@@ -410,7 +414,7 @@ Misclassifications are about 7%.
 plot(model)
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-15-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-17-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-17-3.png)<!-- -->
 
 ## Inspiration for this project
 

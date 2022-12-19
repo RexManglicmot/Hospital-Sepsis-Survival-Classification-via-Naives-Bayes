@@ -229,14 +229,16 @@ predict1 <- predict(model, train)
 CM1 <- table(predict1, train$result)
 
 print(CM1)
-
-#calculate miscalculation error
-1-sum(diag(CM1))/sum(CM1)
 ```
 Let's look diagonally:
 
-* 0 patients were correctly predicted as classified as Dead
-* 71551 patients were correctly predicted as classified as Alive. 
+* 0 patients were correctly predicted as classified as Dead (result = 0)
+* 71551 patients were correctly predicted as classified as Alive (result = 1).
+
+```{r, message=FALSE, warning=FALSE}
+#calculate miscalculation error
+1-sum(diag(CM1))/sum(CM1)
+```
 
 Misclassifications are about 7%.
 
@@ -249,15 +251,16 @@ predict2 <- predict(model, test)
 CM2 <- table(predict2, test$result)
 
 print(CM2)
-
-#calculate miscalculation error
-1-sum(diag(CM2))/sum(CM2)
 ```
 Let's look diagonally:
 
-* 0 patients were correctly predicted as classified as Dead
-* 30548 patients were correctly predicted as classified as Alive. 
+* 0 patients were correctly predicted as classified as Dead (result = 0).
+* 30548 patients were correctly predicted as classified as Alive (result = 1).
 
+```{r, message=FALSE, warning=FALSE}
+#calculate miscalculation error
+1-sum(diag(CM2))/sum(CM2)
+```
 Misclassifications are about 7%.
 
 ## Limitations
