@@ -43,6 +43,7 @@ library(ggplot2)
 library(viridis)
 library(colorspace)
 library(scales)
+library(naivebayes)
 ```
 
 ## Loading the Data
@@ -139,7 +140,8 @@ ggplot(data, aes(x=epi, y=age, fill=sex)) +
   theme_bw()
 
 ggplot(data, aes(x=epi, fill=result)) +
-  geom_bar(alpha = .5, color='black', position = 'dodge') +
+  geom_bar(alpha = .5, color='black', position = 'dodge', width=0.5,
+           show.legend = TRUE) +
   facet_wrap(~ epi, scales = 'free') +
   scale_fill_discrete_qualitative() +
   theme_bw()
@@ -179,10 +181,51 @@ Naive Bayes uses the Bayes theorem which states we can find the probability of A
 <center>
 ![](https://miro.medium.com/max/750/1*tjcmj9cDQ-rHXAtxCu5bRQ.webp)
 
+The assumption is A and B are independent. 
 </center>
 
 ### Pros
 ### Cons
+
+```{r}
+#set seed to have reproducible results
+set.seed(123)
+
+#split data into a 70/30 split
+ind <- sample(2, nrow(data), replace = T, prob = c(0.7, 0.3))
+
+#split test and train
+train <- data[ind==1, ]
+test <- data[ind==2, ]
+
+#build model
+model <- naive_bayes(result~., data=train)
+```
+
+
+```{r}
+#for numeric intergers we can get mean and sd for dead
+train %>%
+  dplyr::filter(result =='0') %>%
+  summarise(mean(age), sd(age))
+
+#for numeric intergers we can get mean and sd for alive
+train %>%
+  dplyr::filter(result =='1') %>%
+  summarise(mean(age), sd(age))
+```
+
+```{r}
+#plot the model
+plot(model)
+```
+
+
+```{r}
+
+```
+
+
 
 ## Limitations
 

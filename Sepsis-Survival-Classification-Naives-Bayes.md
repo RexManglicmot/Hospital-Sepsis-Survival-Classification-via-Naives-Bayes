@@ -67,6 +67,7 @@ library(ggplot2)
 library(viridis)
 library(colorspace)
 library(scales)
+library(naivebayes)
 ```
 
 ## Loading the Data
@@ -232,7 +233,8 @@ ggplot(data, aes(x=epi, y=age, fill=sex)) +
 
 ``` r
 ggplot(data, aes(x=epi, fill=result)) +
-  geom_bar(alpha = .5, color='black', position = 'dodge') +
+  geom_bar(alpha = .5, color='black', position = 'dodge', width=0.5,
+           show.legend = TRUE) +
   facet_wrap(~ epi, scales = 'free') +
   scale_fill_discrete_qualitative() +
   theme_bw()
@@ -286,11 +288,54 @@ probability of A given B.[^2]
 
 ![](https://miro.medium.com/max/750/1*tjcmj9cDQ-rHXAtxCu5bRQ.webp)
 
+The assumption is A and B are independent.
 </center>
 
 ### Pros
 
 ### Cons
+
+``` r
+#set seed to have reproducible results
+set.seed(123)
+
+#split data into a 70/30 split
+ind <- sample(2, nrow(data), replace = T, prob = c(0.7, 0.3))
+
+#split test and train
+train <- data[ind==1, ]
+test <- data[ind==2, ]
+
+#build model
+model <- naive_bayes(result~., data=train)
+```
+
+``` r
+#for numeric intergers we can get mean and sd for dead
+train %>%
+  dplyr::filter(result =='0') %>%
+  summarise(mean(age), sd(age))
+```
+
+    ##   mean(age)  sd(age)
+    ## 1  77.15803 13.92635
+
+``` r
+#for numeric intergers we can get mean and sd for alive
+train %>%
+  dplyr::filter(result =='1') %>%
+  summarise(mean(age), sd(age))
+```
+
+    ##   mean(age) sd(age)
+    ## 1  61.68295 24.3987
+
+``` r
+#plot the model
+plot(model)
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
 
 ## Limitations
 
