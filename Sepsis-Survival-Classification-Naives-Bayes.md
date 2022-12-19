@@ -16,10 +16,9 @@ Rex Manglicmot
 -   <a href="#exploratory-data-analysis"
     id="toc-exploratory-data-analysis">Exploratory Data Analysis</a>
 -   <a href="#naives-bayes" id="toc-naives-bayes">Naives Bayes</a>
-    -   <a href="#pros" id="toc-pros">Pros</a>
-    -   <a href="#cons" id="toc-cons">Cons</a>
 -   <a href="#limitations" id="toc-limitations">Limitations</a>
 -   <a href="#conclusion" id="toc-conclusion">Conclusion</a>
+-   <a href="#appendix" id="toc-appendix">Appendix</a>
 -   <a href="#inspiration-for-this-project"
     id="toc-inspiration-for-this-project">Inspiration for this project</a>
 
@@ -291,10 +290,6 @@ probability of A given B.[^2]
 The assumption is A and B are independent.
 </center>
 
-### Pros
-
-### Cons
-
 ``` r
 #set seed to have reproducible results
 set.seed(123)
@@ -331,15 +326,91 @@ train %>%
     ## 1  61.68295 24.3987
 
 ``` r
-#plot the model
-plot(model)
+#Predict
+p <- predict(model, train, type = 'prob')
+head(cbind(p, train))
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
+    ##               0         1 age sex epi result
+    ## 1  0.0001442743 0.9998557  21   1   1      1
+    ## 3  0.0001442743 0.9998557  21   1   1      1
+    ## 6  0.1633923481 0.8366077  83   0   1      1
+    ## 7  0.1388140530 0.8611859  74   0   1      1
+    ## 9  0.1136993430 0.8863007  69   0   1      1
+    ## 10 0.0280715088 0.9719285  53   1   1      1
+
+``` r
+#store prediction in an object
+predict1 <- predict(model, train)
+
+#create a confusion matrix
+CM1 <- table(predict1, train$result)
+
+print(CM1)
+```
+
+    ##         
+    ## predict1     0     1
+    ##        0     0     0
+    ##        1  5676 71551
+
+``` r
+#calculate miscalculation error
+1-sum(diag(CM1))/sum(CM1)
+```
+
+    ## [1] 0.07349761
+
+Let’s look diagonally:
+
+-   0 patients were correctly predicted as classified as Dead
+-   71551 patients were correctly predicted as classified as Alive.
+
+Misclassifications are about 7%.
+
+Let’s repeat for test set
+
+``` r
+#store prediction in an object
+predict2 <- predict(model, test)
+
+#create a confusion matrix
+CM2 <- table(predict2, test$result)
+
+print(CM2)
+```
+
+    ##         
+    ## predict2     0     1
+    ##        0     0     0
+    ##        1  2429 30548
+
+``` r
+#calculate miscalculation error
+1-sum(diag(CM2))/sum(CM2)
+```
+
+    ## [1] 0.0736574
+
+Let’s look diagonally:
+
+-   0 patients were correctly predicted as classified as Dead
+-   30548 patients were correctly predicted as classified as Alive.
+
+Misclassifications are about 7%.
 
 ## Limitations
 
 ## Conclusion
+
+## Appendix
+
+``` r
+#plot the model
+plot(model)
+```
+
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-15-3.png)<!-- -->
 
 ## Inspiration for this project
 

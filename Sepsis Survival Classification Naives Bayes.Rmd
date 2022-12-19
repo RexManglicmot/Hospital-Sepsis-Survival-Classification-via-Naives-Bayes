@@ -184,8 +184,6 @@ Naive Bayes uses the Bayes theorem which states we can find the probability of A
 The assumption is A and B are independent. 
 </center>
 
-### Pros
-### Cons
 
 ```{r}
 #set seed to have reproducible results
@@ -215,17 +213,52 @@ train %>%
   summarise(mean(age), sd(age))
 ```
 
-```{r}
-#plot the model
-plot(model)
+
+```{r, message=FALSE, warning=FALSE}
+#Predict
+p <- predict(model, train, type = 'prob')
+head(cbind(p, train))
 ```
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
+#store prediction in an object
+predict1 <- predict(model, train)
 
+#create a confusion matrix
+CM1 <- table(predict1, train$result)
+
+print(CM1)
+
+#calculate miscalculation error
+1-sum(diag(CM1))/sum(CM1)
 ```
+Let's look diagonally:
 
+* 0 patients were correctly predicted as classified as Dead
+* 71551 patients were correctly predicted as classified as Alive. 
 
+Misclassifications are about 7%.
+
+Let's repeat for test set
+```{r, message=FALSE, warning=FALSE}
+#store prediction in an object
+predict2 <- predict(model, test)
+
+#create a confusion matrix
+CM2 <- table(predict2, test$result)
+
+print(CM2)
+
+#calculate miscalculation error
+1-sum(diag(CM2))/sum(CM2)
+```
+Let's look diagonally:
+
+* 0 patients were correctly predicted as classified as Dead
+* 30548 patients were correctly predicted as classified as Alive. 
+
+Misclassifications are about 7%.
 
 ## Limitations
 
@@ -233,6 +266,11 @@ plot(model)
 
 ## Conclusion
 
+## Appendix
+```{r}
+#plot the model
+plot(model)
+```
 
 
 ## Inspiration for this project
