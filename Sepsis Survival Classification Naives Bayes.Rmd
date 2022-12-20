@@ -226,9 +226,15 @@ head(cbind(p, train))
 predict1 <- predict(model, train)
 
 #create a confusion matrix
-CM1 <- table(predict1, train$result)
+CM1 <- table(predicted = predict1, actual = train$result)
 
 print(CM1)
+
+train %>%
+  summarize(accuracy = mean(result == 1))
+
+train %>%
+  summarize(accuracy = mean(result == 0))
 ```
 Let's look diagonally:
 
@@ -248,9 +254,15 @@ Let's repeat for test set
 predict2 <- predict(model, test)
 
 #create a confusion matrix
-CM2 <- table(predict2, test$result)
+CM2 <- table(predicted = predict2, actual = test$result)
 
 print(CM2)
+
+test %>%
+  summarize(accuracy = mean(result == 1))
+
+test %>%
+  summarize(accuracy = mean(result == 0))
 ```
 Let's look diagonally:
 
