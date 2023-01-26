@@ -67,6 +67,7 @@ library(viridis)
 library(colorspace)
 library(scales)
 library(naivebayes)
+library(ROCR)
 ```
 
 ## Loading the Data
@@ -290,6 +291,19 @@ probability of A given B.[^2]
 The assumption is A and B are independent.
 </center>
 
+Advantages:
+
+-   Quick and easy to implement
+-   Useful for multiclass predictions as it is suited for categorical
+    variables than numerical variables
+-   No iterations
+
+Disadvantages:
+
+-   Conditional independence assumption is not always true as there are
+    cases where features are depedent on each other.
+-   Zero frequency problem
+
 ``` r
 #set seed to have reproducible results
 set.seed(123)
@@ -439,9 +453,12 @@ Misclassifications are about 7%.
 
 One limitation is that although both miscalculation errors for the train
 and test dataset are low, about 7%, the model failed to predict
-accturately those who died within the hospital in both datasets. In
-fact, it the model got it all wrong! Further tweaking is needed, such as
-adding a Kernel.
+accurately those who died within the hospital in both datasets. In fact,
+it the model got it all wrong! This can be due to prevalence; there is
+more 1 (Alive) than there is 0 (Dead) within the dataset.
+
+If our dataset in our train is biased then our results in out test will
+be biased as well.
 
 ## Conclusion
 
