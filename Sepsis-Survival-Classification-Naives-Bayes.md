@@ -38,12 +38,15 @@ Things still need to do/Questions:
 
 </center>
 
-**?????** According to the Center for Disease Control and Prevention, in
-a given year, 1 of 3 patients who have died within the hospital had
-sepsis during hospitalization, however, nearly 87% of sepsis cases
-starts before the patient goes to the hospital.[^1] It leaves hospitals
+According to the Center for Disease Control and Prevention, in a given
+year, 1 of 3 patients who have died within the hospital had sepsis
+during hospitalization, however, nearly 87% of sepsis cases starts
+before the patient goes to the hospital.[^1] It leaves hospitals
 institutions in a precarious situation. How do ultimately help a patient
 get better and not be subjected to malpractice suits?
+
+A special acknowledgement to the University of Irvine Data Repository
+for providing this dataset.
 
 The dataset contains 4 clinical features as follows:
 
@@ -207,7 +210,9 @@ ggplot(data, aes(x=age, fill=result)) +
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-Visually, we see that there is big difference in terms of size.
+Visually, we see that there is big difference in terms of size. We see
+that there is obviously more females in study than there were males
+across all ages.
 
 Let’s check out their density.
 
@@ -220,6 +225,9 @@ ggplot(data, aes(x=age, fill= sex)) +
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+In terms of density, both male and females are overlapping and thus
+similar.
 
 ``` r
 #create a violin plot
@@ -240,7 +248,15 @@ ggplot(data, aes(x=epi, fill=result)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+In terms of Episodes there are a number of insights:
+
+-   In terms of sexes, there are clearly more females in all episodes.
+    This insight was expected given the disproportionate rate of males
+    to females
+-   In terms of episodes, it is clear that most of the patients
+    episodies were categorized majority in 1 and least in 5.
 
 ``` r
 #create a boxplot
@@ -250,7 +266,7 @@ ggplot(data, aes(x=result, y=age, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 #create a barchart
@@ -260,7 +276,7 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
 
 ``` r
 #create a better  barchart
@@ -271,7 +287,7 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-10-3.png)<!-- -->
 
 ## Naives Bayes
 
@@ -469,7 +485,7 @@ be biased as well.
 plot(model)
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-17-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-17-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-18-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-18-3.png)<!-- -->
 
 ## Inspiration for this project
 

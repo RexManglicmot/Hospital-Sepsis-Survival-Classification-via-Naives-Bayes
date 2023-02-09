@@ -123,7 +123,7 @@ ggplot(data, aes(x=age, fill=result)) +
   theme_bw()
 ```
 
-Visually, we see that there is big difference in terms of size.
+Visually, we see that there is big difference in terms of size. We see that there is obviously more females in study than there were males across all ages. 
 
 Let's check out their density. 
 ```{r}
@@ -134,6 +134,7 @@ ggplot(data, aes(x=age, fill= sex)) +
   theme_bw()
 ```
 
+In terms of density, both male and females are overlapping and thus similar. 
 
 ```{r}
 #create a violin plot
@@ -141,7 +142,10 @@ ggplot(data, aes(x=epi, y=age, fill=sex)) +
   geom_violin(alpha = .5, color='black') +
   scale_fill_discrete_qualitative() +
   theme_bw()
+```
 
+
+```{r}
 ggplot(data, aes(x=epi, fill=result)) +
   geom_bar(alpha = .5, color='black', position = 'dodge', width=0.5,
            show.legend = TRUE) +
@@ -149,6 +153,11 @@ ggplot(data, aes(x=epi, fill=result)) +
   scale_fill_discrete_qualitative() +
   theme_bw()
 ```
+
+In terms of Episodes there are a number of insights:
+
+* In terms of sexes, there are clearly more females in all episodes. This insight  was expected given the disproportionate rate of males to females
+* In terms of episodes, it is clear that most of the patients episodies were categorized majority in 1 and least in 5.
 
 
 ```{r}
