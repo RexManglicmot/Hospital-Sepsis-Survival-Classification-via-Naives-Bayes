@@ -144,6 +144,9 @@ ggplot(data, aes(x=epi, y=age, fill=sex)) +
   theme_bw()
 ```
 
+Insights:
+
+*We see across both sexes and episodes that majority of the patients were the age 60+. What this could possibly mean is that Sepsis is likely to be caused in older age brackets and an insight we can gather is that when an older patient that is admitted to the hospital it could signal to the nursing staff that said patient may likely have a sepsis and precautions could be taken in the nursing unit. 
 
 ```{r}
 ggplot(data, aes(x=epi, fill=result)) +
@@ -166,7 +169,10 @@ ggplot(data, aes(x=result, y=age, fill=sex)) +
   geom_boxplot(alpha = .5, color = 'black') +
   scale_fill_discrete_qualitative() +
   theme_bw()
+```
 
+
+```{r}
 #create a barchart
 ggplot(data, aes(x=result, fill=sex)) +
   geom_bar(alpha = .5, color='black', width = 0.5) +

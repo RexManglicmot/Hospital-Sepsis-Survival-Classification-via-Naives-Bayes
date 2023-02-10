@@ -239,6 +239,15 @@ ggplot(data, aes(x=epi, y=age, fill=sex)) +
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
+Insights:
+
+\*We see across both sexes and episodes that majority of the patients
+were the age 60+. What this could possibly mean is that Sepsis is likely
+to be caused in older age brackets and an insight we can gather is that
+when an older patient that is admitted to the hospital it could signal
+to the nursing staff that said patient may likely have a sepsis and
+precautions could be taken in the nursing unit.
+
 ``` r
 ggplot(data, aes(x=epi, fill=result)) +
   geom_bar(alpha = .5, color='black', position = 'dodge', width=0.5,
@@ -276,7 +285,7 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ``` r
 #create a better  barchart
@@ -287,7 +296,7 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-10-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-11-2.png)<!-- -->
 
 ## Naives Bayes
 
@@ -485,7 +494,7 @@ be biased as well.
 plot(model)
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-18-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-18-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-19-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-19-3.png)<!-- -->
 
 ## Inspiration for this project
 
