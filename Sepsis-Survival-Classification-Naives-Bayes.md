@@ -276,6 +276,13 @@ ggplot(data, aes(x=result, y=age, fill=sex)) +
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+Insights:
+
+*In results, in those patients that died (0), we see that both male and
+females had outliers in the lower part of the box plot. Women age was
+slightly higher than males. *In the results, in those patients that
+lived (1), we see that the females had a better distrivtuion than that
+of males.
 
 ``` r
 #create a barchart
