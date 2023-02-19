@@ -1,7 +1,6 @@
 ---
-title: "Sepsis Survival Classification Naives Bayes"
+title: "Sepsis Survival Classification via Naives Bayes"
 author: "Rex Manglicmot"
-date: "2022-12-18"
 output: 
   github_document: 
     toc: yes
@@ -12,8 +11,7 @@ Things still need to do/Questions:
 
 * Concepts on Naive Bayes + Cite Sources
 * color section for histogram
-* think of new ideas to display plots
-
+* Flush out insights for the exhibits
 
 ## Introduction
 <center>
@@ -144,9 +142,10 @@ ggplot(data, aes(x=epi, y=age, fill=sex)) +
   theme_bw()
 ```
 
+
 Insights:
 
-*We see across both sexes and episodes that majority of the patients were the age 60+. What this could possibly mean is that Sepsis is likely to be caused in older age brackets and an insight we can gather is that when an older patient that is admitted to the hospital it could signal to the nursing staff that said patient may likely have a sepsis and precautions could be taken in the nursing unit. 
+* We see across both sexes and episodes that majority of the patients were the age 60+. What this could possibly mean is that Sepsis is likely to be caused in older age brackets and an insight we can gather is that when an older patient that is admitted to the hospital it could signal to the nursing staff that said patient may likely have a sepsis and precautions could be taken in the nursing unit. 
 
 ```{r}
 ggplot(data, aes(x=epi, fill=result)) +
@@ -170,9 +169,10 @@ ggplot(data, aes(x=result, y=age, fill=sex)) +
   scale_fill_discrete_qualitative() +
   theme_bw()
 ```
+
 Insights:
 
-*In results, in those patients that died (0), we see that both male and females had outliers in the lower part of the box plot. Women age was slightly higher than males. 
+* In results, in those patients that died (0), we see that both male and females had outliers in the lower part of the box plot. Women age was slightly higher than males. 
 *In the results, in those patients that lived (1), we see that the females had a better distrivtuion than that of males. 
 
 ```{r}
@@ -202,19 +202,28 @@ Naive Bayes uses the Bayes theorem which states we can find the probability of A
 <center>
 ![](https://miro.medium.com/max/750/1*tjcmj9cDQ-rHXAtxCu5bRQ.webp)
 
+</center>
+### Applications
+
+* Sentiment Analysis. Identify positive and negative customer reviews.
+* Spam filtering. Identify spam emails.
+* Classify articles. Is the article, politics, healthcare, or oil & gas. 
+
 The assumption is A and B are independent. 
 </center>
 
-Advantages:
+### Pros
 
 * Quick and easy to implement
 * Useful for multiclass predictions as it is suited for categorical variables than numerical variables
 * No iterations
+* Requires small amount of training data and thus is NB is useful for small datasets.
+* When independent predictors assumptions are true, NB performs better than other models.
 
-Disadvantages:
+### Cons
 
-* Conditional independence assumption is not always true as there are cases where features are depedent on each other.
-* Zero frequency problem
+* Conditional independence assumption is not always true as there are cases where features are dependent on each other.
+* Zero frequency problem, which is when a category variable is present in the test data set and not in the train dataset, the model will make a 0 probability. 
 
 
 ```{r}
