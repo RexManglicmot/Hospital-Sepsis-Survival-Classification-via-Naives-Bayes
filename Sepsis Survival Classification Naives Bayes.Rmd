@@ -21,7 +21,13 @@ Things still need to do/Questions:
 
 According to the Center for Disease Control and Prevention, in a given year, 1 of 3 patients who have died within the hospital had sepsis during hospitalization, however, nearly 87% of sepsis cases starts before the patient goes to the hospital.^[https://www.cdc.gov/sepsis/what-is-sepsis.html#:~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization] It leaves hospitals institutions in a precarious situation. How do ultimately help a patient get better and not be subjected to malpractice suits? 
 
-A special acknowledgement to the University of Irvine Data Repository for providing this dataset. 
+The purpose of this project is to classify if a patient with sepsis will due within a hospital. The goals of this study is to:
+
+1. Better equip/train hospital staff for potential sepsis complications and thus create internal protocols, and also improve status quo.
+2. Promote the uncovering of the underlying reasons why a patient dies within a hospital via academic research.
+
+
+A special acknowledgement to the University of Irvine Data Repository for providing this dataset.^[https://archive.ics.uci.edu/ml/datasets/Sepsis+survival+minimal+clinical+records] 
 
 The dataset contains 4 clinical features as follows:
 

@@ -47,8 +47,16 @@ before the patient goes to the hospital.[^1] It leaves hospitals
 institutions in a precarious situation. How do ultimately help a patient
 get better and not be subjected to malpractice suits?
 
+The purpose of this project is to classify if a patient with sepsis will
+due within a hospital. The goals of this study is to:
+
+1.  Better equip/train hospital staff for potential sepsis complications
+    and thus create internal protocols, and also improve status quo.
+2.  Promote the uncovering of the underlying reasons why a patient dies
+    within a hospital via academic research.
+
 A special acknowledgement to the University of Irvine Data Repository
-for providing this dataset.
+for providing this dataset.[^2]
 
 The dataset contains 4 clinical features as follows:
 
@@ -318,7 +326,7 @@ ggplot(data, aes(x=result, fill=sex)) +
 </center>
 
 Naive Bayes uses the Bayes theorem which states we can find the
-probability of A given B.[^2]
+probability of A given B.[^3]
 
 <center>
 
@@ -526,4 +534,6 @@ plot(model)
 
 [^1]: <https://www.cdc.gov/sepsis/what-is-sepsis.html#>:\~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization
 
-[^2]: <https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c>
+[^2]: <https://archive.ics.uci.edu/ml/datasets/Sepsis+survival+minimal+clinical+records>
+
+[^3]: <https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c>
