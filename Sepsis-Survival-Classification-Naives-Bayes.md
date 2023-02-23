@@ -31,6 +31,7 @@ Things still need to do/Questions:
 -   Concepts on Naive Bayes + Cite Sources
 -   color section for histogram
 -   Flush out insights for the exhibits
+-   Flush out intro
 
 ## Introduction
 
@@ -39,6 +40,14 @@ Things still need to do/Questions:
 ![](https://www.drugtargetreview.com/wp-content/uploads/sepsis-3.jpg)
 
 </center>
+
+Sepsis is a bacterial infection within the bloodstream and
+life-threatening. Any type of infection could cause seps such as
+catheter sites, wounds, burns, kidney, etc. The body is over actively
+working to fight the infection and as a result lead to septic shock
+(severe drop in blood pressure) that can lead to tissue damage, organ
+failure and even death. Symptoms include shivering, fast and shallow
+breathing, etc.
 
 According to the Center for Disease Control and Prevention, in a given
 year, 1 of 3 patients who have died within the hospital had sepsis

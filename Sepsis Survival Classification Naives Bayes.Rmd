@@ -12,12 +12,16 @@ Things still need to do/Questions:
 * Concepts on Naive Bayes + Cite Sources
 * color section for histogram
 * Flush out insights for the exhibits
+* Flush out intro
 
 ## Introduction
 <center>
+
 ![](https://www.drugtargetreview.com/wp-content/uploads/sepsis-3.jpg)
 
 </center>
+
+Sepsis is a bacterial infection within the bloodstream and life-threatening. Any type of infection could cause seps such as catheter sites, wounds, burns, kidney, etc. The body is over actively working to fight the infection and as a result lead to septic shock (severe drop in blood pressure) that can lead to tissue damage, organ failure and even death. Symptoms include shivering, fast and shallow breathing, etc. 
 
 According to the Center for Disease Control and Prevention, in a given year, 1 of 3 patients who have died within the hospital had sepsis during hospitalization, however, nearly 87% of sepsis cases starts before the patient goes to the hospital.^[https://www.cdc.gov/sepsis/what-is-sepsis.html#:~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization] It leaves hospitals institutions in a precarious situation. How do ultimately help a patient get better and not be subjected to malpractice suits? 
 
