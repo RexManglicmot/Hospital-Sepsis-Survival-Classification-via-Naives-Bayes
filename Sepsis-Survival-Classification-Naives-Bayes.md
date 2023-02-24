@@ -213,9 +213,9 @@ ggplot(data, aes(x=age, fill= result)) +
 
 We see two interesting insights:
 
-1.  Due to the facet wrap, we see that there are more people who lived
+-   Due to the facet wrap, we see that there are more people who lived
     than died.
-2.  Based on the Age distribution, we see that both populations were
+-   Based on the Age distribution, we see that both populations were
     majority in the elderly age group and thus are right skewed.
 
 Let’s see how they both compare.
@@ -315,6 +315,10 @@ ggplot(data, aes(x=result, fill=sex)) +
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
+The default code to build a barchart is not helpful in drawing any
+insights. There is a need to scale each result (0 and 1) based on their
+respective y-axis metrics. THe code below does that.
+
 ``` r
 #create a better  barchart
 ggplot(data, aes(x=result, fill=sex)) +
@@ -324,7 +328,16 @@ ggplot(data, aes(x=result, fill=sex)) +
   theme_bw()
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-11-2.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+
+Insights:
+
+-   We see that there is about a \~2000 total patient difference between
+    the results group 0 and 1.
+-   We see that the distribution of the sexes is slightly favorable
+    towards the 0 group in both result groups.
+-   We can say that the study did a good job in getting a sample of
+    sexes and results that are approximate.
 
 ## Naives Bayes
 
@@ -537,7 +550,7 @@ be biased as well.
 plot(model)
 ```
 
-![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-19-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-19-3.png)<!-- -->
+![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-20-2.png)<!-- -->![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-20-3.png)<!-- -->
 
 ## Inspiration for this project
 
