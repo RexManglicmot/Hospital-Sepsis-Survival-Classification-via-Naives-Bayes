@@ -341,18 +341,20 @@ Insights:
 
 ## Naives Bayes
 
-<center>
-
-![](https://miro.medium.com/max/1154/1*lIhMVUIcX6cSq2URrG9M1w.webp)
-
-</center>
-
-Naive Bayes uses the Bayes theorem which states we can find the
-probability of A given B.[^3]
+Naive Bayes (NB) is a machine learning classifier based on Bayes’
+Theorem (describes the relationship of conditional probabilities).
+Further, NB uses the Bayes theorem which states we can find the
+probability of A given B. The core fo the theorem is is the assumption
+that each pair of features are independent of each other.[^3]
 
 <center>
 
 ![](https://miro.medium.com/max/750/1*tjcmj9cDQ-rHXAtxCu5bRQ.webp)
+
+</center>
+
+In the figure above, we are trying to find the probability of A given
+that B is true/has already occurred.
 
 </center>
 
