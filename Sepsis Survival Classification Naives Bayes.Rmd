@@ -21,14 +21,17 @@ Things still need to do/Questions:
 
 </center>
 
-Sepsis is a bacterial infection within the bloodstream and life-threatening. Any type of infection could cause seps such as catheter sites, wounds, burns, kidney, etc. The body is over actively working to fight the infection and as a result lead to septic shock (severe drop in blood pressure) that can lead to tissue damage, organ failure and even death. Symptoms include shivering, fast and shallow breathing, etc. 
+Sepsis is a bacterial infection within the bloodstream and is life-threatening. Any type of infection could cause sepsis such as catheter sites, wounds, burns, kidney, etc. In sepsis the body is over actively working to fight the infection and as a result lead to septic shock (severe drop in blood pressure) that can lead to tissue damage, organ failure and even death. Symptoms include shivering, fast and shallow breathing, etc. 
 
-According to the Center for Disease Control and Prevention, in a given year, 1 of 3 patients who have died within the hospital had sepsis during hospitalization, however, nearly 87% of sepsis cases starts before the patient goes to the hospital.^[https://www.cdc.gov/sepsis/what-is-sepsis.html#:~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization] It leaves hospitals institutions in a precarious situation. How do ultimately help a patient get better and not be subjected to malpractice suits? 
+Anyone is susceptible to sepsis, but the people with the highest risk are infants, children, older adults, and people with underlying health conditions such as AIDS and cancer.^[https://nigms.nih.gov/education/fact-sheets/Pages/sepsis.aspx] As well as pregnant women, newborns, and medical conditions such as diabetes, obesity and kidney disease.^[https://my.clevelandclinic.org/health/diseases/12361-sepsis]
 
-The purpose of this project is to classify if a patient with sepsis will due within a hospital. The goals of this study is to:
+According to the Center for Disease Control and Prevention, in a given year, 1 of 3 patients who have died within the hospital had sepsis during hospitalization, however, nearly 87% of sepsis cases starts before the patient goes to the hospital.^[https://www.cdc.gov/sepsis/what-is-sepsis.html#:~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization] Further, it is a leading cause of death in hospitals.^[https://nigms.nih.gov/education/fact-sheets/Pages/sepsis.aspx] Sepsis therefore leaves hospital healthcare institutions in a precarious situation. How do ultimately help a patient get better and not be subjected to malpractice suits? 
+
+The purpose of this project is to classify if a patient with sepsis will die within a hospital. The goals of this study is to:
 
 1. Better equip/train hospital staff for potential sepsis complications and thus create internal protocols, and also improve status quo.
 2. Promote the uncovering of the underlying reasons why a patient dies within a hospital via academic research.
+3. Protect hospital institutions from legal ramifications by identifying if sepsis occurred in a patient before hospital admittance.  
 
 
 A special acknowledgement to the University of Irvine Data Repository for providing this dataset.^[https://archive.ics.uci.edu/ml/datasets/Sepsis+survival+minimal+clinical+records] 

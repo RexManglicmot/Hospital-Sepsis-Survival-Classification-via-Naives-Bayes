@@ -41,31 +41,41 @@ Things still need to do/Questions:
 
 </center>
 
-Sepsis is a bacterial infection within the bloodstream and
-life-threatening. Any type of infection could cause seps such as
-catheter sites, wounds, burns, kidney, etc. The body is over actively
-working to fight the infection and as a result lead to septic shock
-(severe drop in blood pressure) that can lead to tissue damage, organ
-failure and even death. Symptoms include shivering, fast and shallow
-breathing, etc.
+Sepsis is a bacterial infection within the bloodstream and is
+life-threatening. Any type of infection could cause sepsis such as
+catheter sites, wounds, burns, kidney, etc. In sepsis the body is over
+actively working to fight the infection and as a result lead to septic
+shock (severe drop in blood pressure) that can lead to tissue damage,
+organ failure and even death. Symptoms include shivering, fast and
+shallow breathing, etc.
+
+Anyone is susceptible to sepsis, but the people with the highest risk
+are infants, children, older adults, and people with underlying health
+conditions such as AIDS and cancer.[^1] As well as pregnant women,
+newborns, and medical conditions such as diabetes, obesity and kidney
+disease.[^2]
 
 According to the Center for Disease Control and Prevention, in a given
 year, 1 of 3 patients who have died within the hospital had sepsis
 during hospitalization, however, nearly 87% of sepsis cases starts
-before the patient goes to the hospital.[^1] It leaves hospitals
-institutions in a precarious situation. How do ultimately help a patient
-get better and not be subjected to malpractice suits?
+before the patient goes to the hospital.[^3] Further, it is a leading
+cause of death in hospitals.[^4] Sepsis therefore leaves hospital
+healthcare institutions in a precarious situation. How do ultimately
+help a patient get better and not be subjected to malpractice suits?
 
 The purpose of this project is to classify if a patient with sepsis will
-due within a hospital. The goals of this study is to:
+die within a hospital. The goals of this study is to:
 
 1.  Better equip/train hospital staff for potential sepsis complications
     and thus create internal protocols, and also improve status quo.
 2.  Promote the uncovering of the underlying reasons why a patient dies
     within a hospital via academic research.
+3.  Protect hospital institutions from legal ramifications by
+    identifying if sepsis occurred in a patient before hospital
+    admittance.
 
 A special acknowledgement to the University of Irvine Data Repository
-for providing this dataset.[^2]
+for providing this dataset.[^5]
 
 The dataset contains 4 clinical features as follows:
 
@@ -345,7 +355,7 @@ Naive Bayes (NB) is a machine learning classifier based on Bayes’
 Theorem (describes the relationship of conditional probabilities).
 Further, NB uses the Bayes theorem which states we can find the
 probability of A given B. The core fo the theorem is is the assumption
-that each pair of features are independent of each other.[^3]
+that each pair of features are independent of each other.[^6]
 
 <center>
 
@@ -556,8 +566,14 @@ plot(model)
 
 ## Inspiration for this project
 
-[^1]: <https://www.cdc.gov/sepsis/what-is-sepsis.html#>:\~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization
+[^1]: <https://nigms.nih.gov/education/fact-sheets/Pages/sepsis.aspx>
 
-[^2]: <https://archive.ics.uci.edu/ml/datasets/Sepsis+survival+minimal+clinical+records>
+[^2]: <https://my.clevelandclinic.org/health/diseases/12361-sepsis>
 
-[^3]: <https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c>
+[^3]: <https://www.cdc.gov/sepsis/what-is-sepsis.html#>:\~:text=In%20a%20typical%20year%3A,had%20sepsis%20during%20that%20hospitalization
+
+[^4]: <https://nigms.nih.gov/education/fact-sheets/Pages/sepsis.aspx>
+
+[^5]: <https://archive.ics.uci.edu/ml/datasets/Sepsis+survival+minimal+clinical+records>
+
+[^6]: <https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c>
