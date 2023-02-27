@@ -213,10 +213,10 @@ ggplot(data, aes(x=age, fill= result)) +
   facet_wrap(~result, scales= 'free_y') +
   scale_fill_discrete_qualitative() +
   theme_bw() +
-  labs(title = 'Age Distribution by Those Who Died/Lived',
+  labs(title = 'Age Distribution by Frequency to Those Who Died/Lived',
        subtitle = '0=Died and 1=Alive',
        y = 'Frequency',
-       x = '')
+       x = 'Age')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
@@ -234,7 +234,11 @@ Let’s see how they both compare.
 ggplot(data, aes(x=age, fill=result)) +
   geom_bar(position = 'dodge' ) +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+  labs(title = 'Age Distribution by Count to Those Who Died/Lived',
+       subtitle = '0=Died and 1=Alive',
+       y = 'Count',
+       x = 'Age')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
@@ -250,7 +254,11 @@ Let’s check out their density.
 ggplot(data, aes(x=age, fill= sex)) +
   geom_density(alpha = .5, color = 'black') +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+    labs(title = 'Age Distribution by Density to Sex',
+       subtitle = '0= Male and 1= Female',
+       y = 'Density',
+       x = 'Age')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
@@ -263,7 +271,11 @@ similar.
 ggplot(data, aes(x=epi, y=age, fill=sex)) +
   geom_violin(alpha = .5, color='black') +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+    labs(title = 'Epi by Age to Sex',
+       subtitle = '0= Male and 1= Female',
+       y = 'Age',
+       x = 'Epi (Categorical)')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
@@ -284,7 +296,11 @@ ggplot(data, aes(x=epi, fill=result)) +
            show.legend = TRUE) +
   facet_wrap(~ epi, scales = 'free') +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+    labs(title = 'Epi Distribution by Count to Those Who Died/Lived',
+       subtitle = '0=Died and 1=Alive',
+       y = 'Count',
+       x = 'Epi (Categorical)')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
@@ -302,7 +318,11 @@ In terms of Episodes there are a number of insights:
 ggplot(data, aes(x=result, y=age, fill=sex)) +
   geom_boxplot(alpha = .5, color = 'black') +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+    labs(title = 'Result by Age to Sex',
+       subtitle = '0= Male and 1= Female',
+       y = 'Age',
+       x = 'Result (Categorical)')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
@@ -320,7 +340,11 @@ Insights:
 ggplot(data, aes(x=result, fill=sex)) +
   geom_bar(alpha = .5, color='black', width = 0.5) +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+    labs(title = 'Results by Count to Sex',
+       subtitle = '0= Male and 1= Female',
+       y = 'Count',
+       x = 'Result')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
@@ -335,7 +359,11 @@ ggplot(data, aes(x=result, fill=sex)) +
   geom_bar(alpha = .5, color='black', width = 0.5) +
   facet_wrap(~ result, scales = 'free') +
   scale_fill_discrete_qualitative() +
-  theme_bw()
+  theme_bw() +
+    labs(title = 'Results by Count to Sex',
+       subtitle = '0= Male and 1= Female',
+       y = 'Count',
+       x = 'Result')
 ```
 
 ![](Sepsis-Survival-Classification-Naives-Bayes_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
