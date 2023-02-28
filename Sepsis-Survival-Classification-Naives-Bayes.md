@@ -383,7 +383,13 @@ Naive Bayes (NB) is a machine learning classifier based on Bayes’
 Theorem (describes the relationship of conditional probabilities).
 Further, NB uses the Bayes theorem which states we can find the
 probability of A given B. The core fo the theorem is is the assumption
-that each pair of features are independent of each other.[^6]
+that each pair of features are independent of each other.[^6] Thus, the
+presence of one feature does not affect the outcome of the other (hence
+the name “naive”).For example, in surfing, if the day’s temperature is
+hot does not mean the weather’s humidity is hot. Another assumption is
+that all the features have an equal effect on the dependent variable.
+For example, in surfing, the day being cloudy does not affect the
+decision to surf.
 
 <center>
 
@@ -393,6 +399,9 @@ that each pair of features are independent of each other.[^6]
 
 In the figure above, we are trying to find the probability of A given
 that B is true/has already occurred.
+
+The variable A represents the class variable (to surf or not). Variable
+B represents the features (temperature, humidity, weather, etc.)
 
 </center>
 
